@@ -30,3 +30,7 @@ jobs:
     steps:
       - id: temp
         run: pwd
+  output-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ steps }}"
