@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: cicd-section/api
+        working-directory: cicd-section
     steps:
       - uses: actions/checkout@v4
       - run: pwd
