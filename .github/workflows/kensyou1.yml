@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: abc
+        working-directory: cicd-section
     steps:
       - run: pwd
+      - run: ls
