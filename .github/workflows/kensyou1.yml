@@ -20,3 +20,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: pwd
       - run: ls
+  name-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ネームジョブのステップ1
+        run: pwd 
