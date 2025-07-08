@@ -17,5 +17,6 @@ jobs:
       run:
         working-directory: cicd-section/api
     steps:
+      - uses: actions/checkout@v4
       - run: pwd
       - run: ls
