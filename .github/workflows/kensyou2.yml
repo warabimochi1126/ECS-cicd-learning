@@ -2,9 +2,13 @@ name: kensyou2
 on: push
 
 jobs:
-  test-job:
+  hensuu-job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test-jobが実行される"
       - run: echo "${{ env.hensuu }}"
       - run: echo "$hensuu"
+  working-directory-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
