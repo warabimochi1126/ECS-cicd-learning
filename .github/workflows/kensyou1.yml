@@ -24,4 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ネームジョブのステップ1
-        run: pwd 
+        run: pwd
+  id-job:
+    runs-on: ubuntu-latest
+    steps:
+      - id: temp
+        run: pwd
