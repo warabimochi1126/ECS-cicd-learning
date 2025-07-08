@@ -33,4 +33,5 @@ jobs:
   output-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ steps }}"
+      - run: echo "${{ steps.temp }}"
+      - run: echo "${{ steps.temp.output }}"
