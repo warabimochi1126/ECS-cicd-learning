@@ -1,0 +1,17 @@
+name: working-dir
+on: push
+
+jobs:
+  working-dir-setting-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cicd-section/api
+    steps:
+      - uses: actions/checkout@v4
+      - run: pwd
+  working-dir-verification-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+
