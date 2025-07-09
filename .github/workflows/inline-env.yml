@@ -13,3 +13,10 @@ jobs:
           echo "${{ env.test1 }}"
           echo "${{ env.test2 }}"
           echo "${{ env.test3 }}"
+  outline-env:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${{ env.test1 }}"
+          echo "${{ env.test2 }}"
+          echo "${{ env.test3 }}"
