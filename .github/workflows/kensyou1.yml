@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: ネームジョブのステップ1
         run: pwd
-  secret-job:
+  secret-mask-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.abcdef }}"
+      - run: echo "secretsは*でマスクされるか？ ${{ secrets.abcdef }}"

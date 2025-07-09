@@ -18,3 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: pwd
+  secret-mask-clear-job:
+    runs-on: job
+    steps:
+     - run: |
+        echo "${{ secrets.MY_SECRET }}" > temp.txt
+        cat temp.txt
+
+
