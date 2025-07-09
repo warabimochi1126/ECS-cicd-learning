@@ -25,13 +25,7 @@ jobs:
     steps:
       - name: ネームジョブのステップ1
         run: pwd
-  id-job:
+  secret-job:
     runs-on: ubuntu-latest
     steps:
-      - id: temp
-        run: pwd
-  output-job:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${{ steps.temp }}"
-      - run: echo "${{ steps.temp.output }}"
+      - run: echo "${{ abcdef }}"

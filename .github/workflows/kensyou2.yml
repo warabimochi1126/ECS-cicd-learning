@@ -18,7 +18,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: pwd
-  id-job:
-    runs-on: ubuntu-latest
-    steps:
-     - run: pwd
