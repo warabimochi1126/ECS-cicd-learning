@@ -43,5 +43,7 @@ jobs:
       - name: 本来はoutputに対して描き込む(とりあえずpwd)
         id: kakikomi
         run: echo "this is step:kakikomi mojiretu" >> $GITHUB_OUTPUT
-      - name: idを書き込んだstepから値を取得する
-        run: echo "${{ steps.kakikomi.output }}"
+      - name: idを書き込んだstepのoutputsを取得する
+        run: echo "${{ steps.kakikomi.outputs }}"
+      # - name: idを書き込んだstepから値を取得する
+      #   run: echo ${{ steps.kakikomi.outputs.message }}
