@@ -28,4 +28,4 @@ jobs:
   secret-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ abcdef }}"
+      - run: echo "${{ secrets.abcdef }}"
