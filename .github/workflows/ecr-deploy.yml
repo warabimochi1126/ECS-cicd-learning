@@ -42,7 +42,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          docker image tag temp_api_image $ECR_REGISTRY/$ECR_REPOSIORY:${{ github.sha }} 
+          docker image tag temp_api_image:latest $ECR_REGISTRY/$ECR_REPOSIORY:${{ github.sha }} 
           docker image push $ECR_REGISTRY/$ECR_REPOSIORY:${{ github.sha }}
       
       - name: atodekesu registryが何か出力する
