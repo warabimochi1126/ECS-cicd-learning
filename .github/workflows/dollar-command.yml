@@ -1,0 +1,29 @@
+name: Dollar Command And > | >>
+on: push
+
+jobs:
+  dollar-command-on-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /cicd-section/api
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo $(cat src/main/javaMyAppApplication.java)
+
+  dollar-command-off-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /cicd-section/api
+    steps:
+      - run: echo ${{ cat src/main/javaMyAppApplication.java }}
+
+  one-right-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "aiueo" >> test.txt
+      - run: echo "kakikukeko" >> test.txt
+      - run: cat test.txt
+      - run: echo "sasisuseso" > test.txt
+      - run: cat test.txt
