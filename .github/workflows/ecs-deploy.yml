@@ -82,8 +82,11 @@ jobs:
         with:
           task-definition: ${{ env.ECS-TASK-DEFINITION-API }}
           container-name: api
-          image: ${{ API_IMAGE_URI }}
+          image: ${{ env.API_IMAGE_URI }}
 
+      - name: 更新後タスク定義ファイルのパスを出力する
+        run: echo ${{ steps.render-task-def.output.task-definition }}
+      
       - name: Deploy ECS task
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
