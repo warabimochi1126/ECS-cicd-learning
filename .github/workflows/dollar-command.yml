@@ -6,18 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /cicd-section/api
+        working-directory: cicd-section/api
     steps:
       - uses: actions/checkout@v4
-      - run: echo $(cat ./output.txt)
+      - run: echo $(cat output.txt)
 
   dollar-command-off-job:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /cicd-section/api
+        working-directory: cicd-section/api
     steps:
-      - run: echo $cat ./output.txt
+      - run: echo $cat output.txt
 
   one-right-job:
     runs-on: ubuntu-latest
