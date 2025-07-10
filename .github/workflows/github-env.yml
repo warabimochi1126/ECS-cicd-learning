@@ -10,3 +10,5 @@ jobs:
       - run: echo "test=test1test2test3" >> $GITHUB_ENV
 
       - run: echo ${{ env.test }}
+
+      - run: echo ${{ test }}
