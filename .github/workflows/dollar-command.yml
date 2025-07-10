@@ -17,7 +17,7 @@ jobs:
       run:
         working-directory: /cicd-section/api
     steps:
-      - run: echo ${{ cat output.txt }}
+      - run: echo $cat output.txt
 
   one-right-job:
     runs-on: ubuntu-latest
