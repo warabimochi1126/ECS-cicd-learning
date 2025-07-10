@@ -1,0 +1,26 @@
+name: Need Kensyou
+on: push
+
+jobs:
+  example-pwd-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+
+  need-array-job:
+    runs-on: ubuntu-latest
+    needs: [example-pwd-job]
+    steps:
+      - run: ls
+
+  need-hyphen-job:
+    runs-on: ubuntu-latest
+    needs:
+      - example-pwd-job
+    steps:
+      - run: ls
+
+  not-need-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls
