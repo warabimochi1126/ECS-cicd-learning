@@ -11,11 +11,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-          pwd
+          pwd 
           echo "test message" > test.txt
           ls
+
+      - run: echo "nisemono test message" > ../../test.txt
 
       - uses: actions/upload-artifact@v4
         with:
           name: testfile
-          path: cicd-section/api/test.txt
+          path: test.txt
