@@ -44,7 +44,7 @@ jobs:
         run: |
           docker image tag temp_api_image:latest $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} 
           docker image push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
-          echo push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} > api-image-uri.txt
+          echo $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} > api-image-uri.txt
 
       - name: Upload the image url file as an artifact
         uses: actions/upload-artifact@v4
@@ -80,18 +80,17 @@ jobs:
         id: render-task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.ECS-TASK-DEFINITION-API }}
           task-definition: ${{ env.ECS_TASK_DEFINITION_API }}
           container-name: api
           image: ${{ env.API_IMAGE_URI }}
 
       - name: 更新後タスク定義ファイルのパスを出力する
-        run: echo ${{ steps.render-task-def.output.task-definition }}
+        run: echo ${{ steps.render-task-def.outputs.task-definition }}
       
       - name: Deploy ECS task
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.render-task-def.output.task-definition }}
+          task-definition: ${{ steps.render-task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
