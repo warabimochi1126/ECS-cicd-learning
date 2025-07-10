@@ -1,0 +1,21 @@
+name: Artifact Kensyou
+on: push
+
+jobs:
+  upload-artifact:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /cicd-section/api
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: |
+          pwd
+          echo "test message" > test.txt
+          ls
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: testfile
+          path: test.txt
