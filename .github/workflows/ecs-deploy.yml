@@ -90,9 +90,6 @@ jobs:
       - name: 更新後のタスク定義をcatする
         run: cat ${{ steps.render-task-def.outputs.task-definition }}
 
-      - name: まったく関係ないが、GITHUB_ENVがenvでの変数定義と同等か把握する
-        run: cat $GITHUB_ENV
-
       - name: Deploy ECS task
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
