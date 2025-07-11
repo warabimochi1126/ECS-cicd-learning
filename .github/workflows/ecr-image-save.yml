@@ -9,7 +9,7 @@ env:
   AWS_REGION: us-east-1
   ECS_CLUSTER: my-app-cluster
   ECS_SERVICE: my-app-api-service
-  ECR_REPOSITORY: github-actions-cicd-section
+  ECR_REPOSITORY: github-actions-cicd-learn
   ECS_TASK_DEFINITION_API: cicd-section/.aws/task-def-api.json
 
 permissions:
@@ -28,7 +28,6 @@ jobs:
       - name: Run Test And Build Image
         run: docker image build -t temp_api_image:latest .
         
-      # Roleを変更したが、secret側に書き換えていない
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
