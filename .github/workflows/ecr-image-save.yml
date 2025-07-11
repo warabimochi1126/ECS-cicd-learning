@@ -1,4 +1,4 @@
-name: Web API Deploy Pipeline
+name: Ecr Image save
 on: 
   push:
     paths:
@@ -9,7 +9,7 @@ env:
   AWS_REGION: us-east-1
   ECS_CLUSTER: my-app-cluster
   ECS_SERVICE: my-app-api-service
-  ECR_REPOSITORY: my-app-api
+  ECR_REPOSITORY: github-actions-cicd-section
   ECS_TASK_DEFINITION_API: cicd-section/.aws/task-def-api.json
 
 permissions:
