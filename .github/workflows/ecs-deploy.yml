@@ -1,5 +1,5 @@
 # name: Web API Deploy Pipeline
-# on: 
+# on:
 #   push:
 #     paths:
 #       - ".github/workflows/**"
@@ -23,21 +23,21 @@
 #       run:
 #         working-directory: cicd-section/api
 #     steps:
-#       - uses: actions/checkout@v4 
+#       - uses: actions/checkout@v4
 
 #       - name: Run Test And Build Image
 #         run: docker image build -t temp_api_image:latest .
-        
+
 #       - name: Configure AWS credentials
 #         uses: aws-actions/configure-aws-credentials@v4
 #         with:
 #           aws-region: ${{ env.AWS_REGION }}
 #           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          
+
 #       - name: Login to Amazon ECR
 #         id: login-ecr
 #         uses: aws-actions/amazon-ecr-login@v2
-        
+
 #       - name: Push the image to Amazon ECR
 #         env:
 #           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -84,9 +84,15 @@
 #           container-name: api
 #           image: ${{ env.API_IMAGE_URI }}
 
-#       - name: 更新後タスク定義ファイルのパスを出力する
+#       - name: 更新後のタスク定義のファイル名を確認する
 #         run: echo ${{ steps.render-task-def.outputs.task-definition }}
-      
+
+#       - name: 更新後のタスク定義をcatする
+#         run: cat ${{ steps.render-task-def.outputs.task-definition }}
+
+#       - name: まったく関係ないが、GITHUB_ENVがenvでの変数定義と同等か把握する
+#         run: cat $GITHUB_ENV
+
 #       - name: Deploy ECS task
 #         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
 #         with:
